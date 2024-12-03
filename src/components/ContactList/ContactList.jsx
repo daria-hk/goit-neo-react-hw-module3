@@ -5,12 +5,7 @@ const ContactList = ({ contacts }) => {
   return (
     <div className={css.contactList}>
       {contacts.map((contact) => (
-        <Contact
-          key={contact.id} // Wichtig für React!
-          id={contact.id}
-          name={contact.name}
-          number={contact.number}
-        />
+        <Contact key={contact.id} name={contact.name} number={contact.number} />
       ))}
     </div>
   );

@@ -27,13 +27,17 @@ const App = () => {
     setContacts((prevContacts) => [...prevContacts, contact]);
   };
 
+  const filterContacts = contacts.filter((contact) =>
+    contact.name.toLowerCase().includes(value.toLowerCase())
+  );
+
   return (
     <>
       <div>
         <h1>Phonebook</h1>
         <ContactForm addContact={addContact} />
-        <SearchBox handleChange={handleChange} value={value} />
-        <ContactList contacts={contacts} />
+        <SearchBox value={value} onChange={handleChange} />
+        <ContactList contacts={filterContacts} />
       </div>
     </>
   );
