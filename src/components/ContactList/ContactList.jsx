@@ -1,19 +1,17 @@
 import css from "./ContactList.module.css";
 import Contact from "../Contact/Contact";
 
-const ContactList = ({
-  totalFeedback,
-  updateFeedback,
-  handleResetFeedback,
-}) => {
+const ContactList = ({ contacts }) => {
   return (
-    <div className={css.options}>
-      <Contact onClick={() => updateFeedback("good")}>Good</Contact>
-      <Contact onClick={() => updateFeedback("neutral")}>Neutral</Contact>
-      <Contact onClick={() => updateFeedback("bad")}>Bad</Contact>
-      {totalFeedback > 0 ? (
-        <Contact onClick={handleResetFeedback}>Reset</Contact>
-      ) : null}
+    <div className={css.contactList}>
+      {contacts.map((contact) => (
+        <Contact
+          key={contact.id} // Wichtig für React!
+          id={contact.id}
+          name={contact.name}
+          number={contact.number}
+        />
+      ))}
     </div>
   );
 };
