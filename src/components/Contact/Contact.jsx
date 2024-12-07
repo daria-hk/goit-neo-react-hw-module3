@@ -1,17 +1,13 @@
 import css from "./Contact.module.css";
 
-const Contact = ({ id, name, number }) => {
-  const handleClick = (evt) => {
-    onClick(evt);
-  };
-
+const Contact = ({ id, name, number, onRemove }) => {
   return (
     <div className={css.contactContainer}>
       <div className={css.contact}>
         <p className={css.contactItem}>{name}</p>
         <p className={css.contactItem}>{number}</p>
       </div>
-      <button onClick={handleClick}>Delete</button>
+      <button onClick={() => onRemove(id)}>Delete</button>
     </div>
   );
 };
